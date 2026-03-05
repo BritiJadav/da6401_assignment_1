@@ -38,3 +38,7 @@ RMSProp helps because it:
 3. Prevents oscillations in steep directions
 4. Accelerates convergence in early epochs.
 
+Q. 4 Fix the optimizer to RMSProp and compare Sigmoid and ReLU for different network configurations. Log the gradient norms for the first hidden layer. Do you observe the vanishing gradient problem with Sigmoid? Provide a plot to support your observation
+
+Ans : Using RMSProp optimizer, we compared Sigmoid and ReLU activations across different network configurations. The plot of gradient norm versus epoch showed that the gradients in the Sigmoid network rapidly decreased towards zero, indicating the presence of the vanishing gradient problem. In contrast, the ReLU network maintained significantly larger gradient norms across epochs.
+
