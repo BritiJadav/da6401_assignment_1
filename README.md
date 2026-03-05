@@ -25,8 +25,9 @@ Impact of Visual Similarity on Model Performance
 Ans : RMSProp optimizer minimize the loss fastest in the first 5 epochs.
 
 Image datasets like MNIST:
-•	High dimensional (784 inputs)
-•	Deep networks
-•	Many parameters
-•	Sparse gradients in ReLU
-•	Noisy gradients
+
+1.	High dimensional (784 inputs)
+2.	Deep networks
+3.	Many parameters
+4.	Sparse gradients in ReLU
+5.	Noisy gradients
