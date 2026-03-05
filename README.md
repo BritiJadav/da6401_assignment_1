@@ -17,3 +17,5 @@ Impact of Visual Similarity on Model Performance
 2.	Overlapping Feature Representations -	Similar handwritten shapes produce similar pixel distributions.
 3.	Decision Boundary Complexity - The model must learn highly non-linear boundaries to separate similar digits. If the network is shallow or undertrained, it struggles.
 4.	Effect on Confusion Matrix - Most errors will occur between visually similar classes. Confusion matrix will show strong off-diagonal values for those pairs.
+
+ https://wandb.ai/ma24m006-indian-institute-of-technology-madras/ASSIGNMENT_1/runs/715gue7v
