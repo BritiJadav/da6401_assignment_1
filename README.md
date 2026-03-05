@@ -18,7 +18,6 @@ Impact of Visual Similarity on Model Performance
 3.	Decision Boundary Complexity - The model must learn highly non-linear boundaries to separate similar digits. If the network is shallow, it struggles.
 4.	Effect on Confusion Matrix - Most errors will occur between visually similar classes. Confusion matrix will show strong off-diagonal values for those pairs.
 
- https://wandb.ai/ma24m006-indian-institute-of-technology-madras/ASSIGNMENT_1/runs/715gue7v
 
  Q. 3 Compare the convergence rates of all 4 optimizers using the same architecture (3 hidden layers, 128 neurons each, ReLU activation). Which optimizer minimized the loss fastest in the first 5 epochs? Theoretically, why does RMSProp often outperform standard SGD on image classification?
  
@@ -31,3 +30,11 @@ Image datasets like MNIST:
 3.	Many parameters
 4.	Sparse gradients in ReLU
 5.	Noisy gradients
+
+RMSProp helps because it:
+
+1. Normalizes gradient magnitude
+2. Stabilizes updates
+3. Prevents oscillations in steep directions
+4. Accelerates convergence in early epochs.
+
