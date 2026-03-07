@@ -4,8 +4,8 @@
 The skeleton of the assignment looks like : 
 
 ```
-src/
-│     ---ann/
+--- src/
+       ---ann/
             ├── dakshina_dataset_v1.0.zip             
             │── activations.py                     
             ├── neural_layer.py                    
