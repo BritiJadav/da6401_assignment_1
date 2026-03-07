@@ -16,5 +16,7 @@ src/
             ├── data_loader.py
        --- inference.py
        --- train.py
+       --- best_config.json
+       --- best_model.npy
 
 ```
