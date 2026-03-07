@@ -6,14 +6,15 @@ The skeleton of the assignment looks like :
 ```
 --- src/
        ---ann/
-            ├── dakshina_dataset_v1.0.zip             
-            │── activations.py                     
-            ├── neural_layer.py                    
-            |── neural_network.py
-            |-- objective_functions.py
-            |-- optimizers.py 
+                    ├── __init__.py             
+                    │── activations.py                     
+                    ├── neural_layer.py                    
+                    |── neural_network.py
+                    |-- objective_functions.py
+                    |-- optimizers.py 
        ---utils/
-            ├── data_loader.py
+                    |-- __init__.py
+                    ├── data_loader.py
        --- inference.py
        --- train.py
        --- best_config.json
