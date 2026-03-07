@@ -1,0 +1,48 @@
+import numpy as np
+from keras.datasets import mnist
+from sklearn.model_selection import train_test_split
+
+
+def train_valid_split(X_train, y_train, n=0.1, random_state=42):
+    """
+    Split training data into train and validation sets
+    """
+    return train_test_split(X_train, y_train, test_size=n, random_state=random_state)
+
+
+def one_hot_encode(labels, num_classes):
+    """
+    Convert labels to one-hot encoding
+    """
+    one_hot = np.zeros((labels.size, num_classes))
+    one_hot[np.arange(labels.size), labels] = 1
+    return one_hot
+
+
+def load_data():
+    """
+    Load MNIST, split validation, reshape, normalize, and one-hot encode
+    Returns:
+        X_train, y_train, X_valid, y_valid, X_test, y_test
+    """
+    (X_train, y_train), (X_test, y_test) = mnist.load_data()
+
+    # Train/Validation split
+    X_train, X_valid, y_train, y_valid = train_valid_split(X_train, y_train, 0.1)
+
+    # Reshape to (num_samples, 784)
+    X_train = X_train.reshape(X_train.shape[0], -1)
+    X_valid = X_valid.reshape(X_valid.shape[0], -1)
+    X_test = X_test.reshape(X_test.shape[0], -1)
+
+    # Normalize [0,255] -> [0,1]
+    X_train = X_train / 255.0
+    X_valid = X_valid / 255.0
+    X_test = X_test / 255.0
+
+    # One-hot encode labels
+    y_train = one_hot_encode(y_train, 10)
+    y_valid = one_hot_encode(y_valid, 10)
+    y_test = one_hot_encode(y_test, 10)
+
+    return X_train, y_train, X_valid, y_valid, X_test, y_test
