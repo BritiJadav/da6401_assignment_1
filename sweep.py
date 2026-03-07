@@ -1,6 +1,6 @@
 import wandb
-from src.train import train
-from src.utils.data_loader import load_data
+from train import train
+from utils.data_loader import load_data
 
 # Load data once globally
 X_train, y_train, X_valid, y_valid, X_test, y_test = load_data()
