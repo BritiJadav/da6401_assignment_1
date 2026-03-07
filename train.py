@@ -7,10 +7,10 @@ import seaborn as sns
 import json
 from sklearn.metrics import confusion_matrix, f1_score
 
-from src.utils.data_loader import load_data
-from src.ann.neural_network import NeuralNetwork
-from src.ann.objective_functions import mse_loss
-from src.ann.optimizers import sgd, momentum, nag, rmsprop
+from utils.data_loader import load_data
+from ann.neural_network import NeuralNetwork
+from ann.objective_functions import mse_loss
+from ann.optimizers import sgd, momentum, nag, rmsprop
 
 
 # -----------------------------
