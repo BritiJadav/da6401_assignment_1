@@ -1,0 +1,38 @@
+import numpy as np
+
+def sgd(nn, lr, weight_decay=0):
+    for layer in nn.layers:
+        layer.W -= lr * (layer.grad_W + weight_decay * layer.W)
+        layer.b -= lr * layer.grad_b
+
+def momentum(nn, lr, beta=0.9, velocity=None, weight_decay=0):
+    if velocity is None:
+        velocity = [{'W': np.zeros_like(layer.W), 'b': np.zeros_like(layer.b)} for layer in nn.layers]
+    for i, layer in enumerate(nn.layers):
+        velocity[i]['W'] = beta * velocity[i]['W'] + layer.grad_W
+        velocity[i]['b'] = beta * velocity[i]['b'] + layer.grad_b
+        layer.W -= lr * (velocity[i]['W'] + weight_decay * layer.W)
+        layer.b -= lr * velocity[i]['b']
+    return velocity
+
+def nag(nn, lr, beta=0.9, velocity=None, weight_decay=0):
+    if velocity is None:
+        velocity = [{'W': np.zeros_like(layer.W), 'b': np.zeros_like(layer.b)} for layer in nn.layers]
+    for i, layer in enumerate(nn.layers):
+        v_prev_W = velocity[i]['W']
+        v_prev_b = velocity[i]['b']
+        velocity[i]['W'] = beta * velocity[i]['W'] + layer.grad_W
+        velocity[i]['b'] = beta * velocity[i]['b'] + layer.grad_b
+        layer.W -= lr * ((1 + beta) * velocity[i]['W'] - beta * v_prev_W + weight_decay * layer.W)
+        layer.b -= lr * ((1 + beta) * velocity[i]['b'] - beta * v_prev_b)
+    return velocity
+
+def rmsprop(nn, lr, beta=0.9, epsilon=1e-8, cache=None, weight_decay=0):
+    if cache is None:
+        cache = [{'W': np.zeros_like(layer.W), 'b': np.zeros_like(layer.b)} for layer in nn.layers]
+    for i, layer in enumerate(nn.layers):
+        cache[i]['W'] = beta * cache[i]['W'] + (1 - beta) * (layer.grad_W ** 2)
+        cache[i]['b'] = beta * cache[i]['b'] + (1 - beta) * (layer.grad_b ** 2)
+        layer.W -= lr * (layer.grad_W / (np.sqrt(cache[i]['W']) + epsilon) + weight_decay * layer.W)
+        layer.b -= lr * (layer.grad_b / (np.sqrt(cache[i]['b']) + epsilon))
+    return cache
