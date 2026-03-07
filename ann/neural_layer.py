@@ -1,5 +1,5 @@
 import numpy as np
-from .activations import activation, grad_der
+from activations import activation, grad_der
 
 class NeuralLayer:
     def __init__(self, in_size, out_size, activation_name, weight_ini_method):
