@@ -1,0 +1,17 @@
+{
+    "epochs": 10,
+    "learning_rate": 0.001,
+    "optimizer": "rmsprop",
+    "number_hidden_layer": 4,
+    "number_neurons": 128,
+    "active_function_hidden": "tanh",
+    "active_function_output": "softmax",
+    "weight_ini_method": "xavier",
+    "epsilon": 1e-08,
+    "weight_decay": 0.0005,
+    "batch_size": 16,
+    "beta": 0.9,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "loss": "cross_entropy"
+}
