@@ -1,6 +1,5 @@
 import numpy as np
 
-#Activation Functions
 def sigmoid(x):
   return 1 /(1 + np.exp(-x))
 def relu(x):
@@ -21,7 +20,6 @@ def activation(x,active_function):
   if active_function=="softmax":
     return softmax(x)
 
-#Derivative of activation functions
 def der_sigmoid(x):
   return sigmoid(x)*(1-sigmoid(x))
 def der_relu(x):
